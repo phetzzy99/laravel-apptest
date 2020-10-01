@@ -16,6 +16,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/about', 'SiteController@index')->name('abouts');
 Route::get('/typebooks', 'TypeBooksController@index')->name('typebooks');
 Route::get('/typebooks/destroy/{id}', 'TypeBooksController@destroy');
+Route::resource('/books','BooksController')->name('index','books');
 
 Route::get('/', function () {
     return view('welcome');

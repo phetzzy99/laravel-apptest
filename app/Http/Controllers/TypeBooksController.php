@@ -8,9 +8,12 @@ use App\TypeBooks; //import model Typebooks use
 class TypeBooksController extends Controller
 {
     public function index() {
-        //$typebooks = TypeBooks::all();
-        $typebooks = TypeBooks::orderBy('id', 'desc')->get();
+        $typebooks = TypeBooks::all();
+        //$typebooks = TypeBooks::orderBy('id', 'desc')->get();
         $count = TypeBooks::count();
+
+        //แบ่งหน้า
+        $typebooks = TypeBooks::paginate(3);
 
         return view('typebooks.index',[
             'typebooks' => $typebooks,
