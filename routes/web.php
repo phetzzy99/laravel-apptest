@@ -16,7 +16,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('/about', 'SiteController@index')->name('abouts');
 Route::get('/typebooks', 'TypeBooksController@index')->name('typebooks');
 Route::get('/typebooks/destroy/{id}', 'TypeBooksController@destroy');
-Route::resource('/books','BooksController')->name('index','books');
+Route::get('/members', 'MemberController@index')->name('members');
+Route::get('autocomplete', 'MemberController@autocomplete')->name('autocomplete');
+Route::get('/searchs', 'MembersController@search')->name('searchs');
 
 Route::get('/', function () {
     return view('welcome');
@@ -24,8 +26,9 @@ Route::get('/', function () {
 
 Auth::routes();
 
+Route::resource('/books','BooksController')->name('index','books');
 Route::get('/home', 'HomeController@index')->name('home');
 
-Auth::routes();
+// Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+// Route::get('/home', 'HomeController@index')->name('home');
